@@ -1,0 +1,522 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ff2d6f55, transparent 30%),
+        radial-gradient(circle at 80% 80%, #8b2cff55, transparent 30%),
+        linear-gradient(135deg, #10000f, #2b001f, #080008);
+
+    color: white;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ff719b 1px, transparent 1px);
+
+    background-size: 80px 80px, 130px 130px;
+
+    opacity: 0.25;
+
+    animation: moveStars 20s linear infinite;
+}
+
+@keyframes moveStars {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.6);
+
+    animation: cardAppear 1s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================
+   TOP TEXT
+========================= */
+
+.top-text {
+    color: #ff9ab7;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.heart-area {
+
+    height: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+/* القلب مصنوع بالكامل بـ CSS */
+
+.heart {
+
+    width: 100px;
+    height: 100px;
+
+    position: relative;
+
+    background: #ff1744;
+
+    transform: rotate(-45deg);
+
+    animation: heartbeat 1.1s infinite;
+
+    box-shadow:
+        0 0 15px #ff1744,
+        0 0 35px #ff1744,
+        0 0 70px #ff174466;
+}
+
+
+/* الدائرة الفوقانية */
+
+.heart::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    top: -50px;
+    left: 0;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+}
+
+
+/* الدائرة الجانبية */
+
+.heart::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    top: 0;
+    left: 50px;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    15% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+
+    30% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    45% {
+        transform: rotate(-45deg) scale(1.12);
+    }
+}
+
+
+/* =========================
+   NAME
+========================= */
+
+h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 65px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 10px #ff416c,
+        0 0 30px #ff416c;
+
+    animation: nameGlow 2s infinite alternate;
+}
+
+@keyframes nameGlow {
+
+    from {
+        text-shadow:
+            0 0 10px #ff416c;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #ff416c,
+            0 0 30px #ff416c,
+            0 0 50px #ff416c;
+    }
+}
+
+
+/* =========================
+   LINE
+========================= */
+
+.line {
+
+    width: 80px;
+    height: 2px;
+
+    margin: 15px auto;
+
+    background: #ff416c;
+
+    box-shadow:
+        0 0 10px #ff416c;
+}
+
+
+/* =========================
+   TYPING
+========================= */
+
+#typing {
+
+    min-height: 50px;
+
+    margin: 15px 0;
+
+    color: #ffe4ec;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    margin-top: 15px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff1744
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px #ff174466;
+
+    transition: 0.3s;
+}
+
+button:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 40px #ff174499;
+}
+
+button:active {
+
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 1s ease,
+        opacity 0.8s ease,
+        margin 0.8s ease;
+}
+
+.message.show {
+
+    max-height: 350px;
+
+    margin-top: 25px;
+
+    opacity: 1;
+}
+
+.message h2 {
+
+    color: #ff8eab;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.message p {
+
+    color: #ffe7ef;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.signature {
+
+    margin-top: 15px;
+
+    color: #ff8eab !important;
+
+    font-family: Georgia, serif;
+
+    font-size: 22px !important;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 5;
+
+    width: 18px;
+    height: 18px;
+
+    background: #ff416c;
+
+    transform: rotate(-45deg);
+
+    animation: floatUp linear forwards;
+
+    box-shadow:
+        0 0 10px #ff416c;
+}
+
+
+.floating-heart::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    top: -9px;
+    left: 0;
+
+    background: #ff416c;
+
+    border-radius: 50%;
+}
+
+
+.floating-heart::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    top: 0;
+    left: 9px;
+
+    background: #ff416c;
+
+    border-radius: 50%;
+}
+
+
+@keyframes floatUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-45deg)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(315deg)
+            scale(1.4);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   PHONE
+========================= */
+
+@media (max-width: 500px) {
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .heart-area {
+        height: 150px;
+    }
+
+    .heart {
+        width: 80px;
+        height: 80px;
+    }
+
+    .heart::before {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+
+    .heart::after {
+        width: 80px;
+        height: 80px;
+        left: 40px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+}
